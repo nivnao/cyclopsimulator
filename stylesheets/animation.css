@@ -1,0 +1,143 @@
+@keyframes indicatormove {
+  0% {
+    right: -100vw;
+  }
+
+  100% {
+    right: 0;
+  }
+}
+
+@keyframes lightpulse {
+  0% {
+    opacity: 30%;
+  }
+  50% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 30%;
+  }
+}
+
+@keyframes textpulse {
+  0% {
+    opacity: 100%;
+  }
+  50% {
+    opacity: 20%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes scale {
+  0% {
+    scale: 1;
+  }
+
+  50% {
+    scale: 1.05;
+  }
+  100% {
+    scale: 1;
+  }
+}
+
+@keyframes holeGrowth {
+  0% {
+    scale: 0;
+    opacity: 0;
+  }
+
+  100% {
+    scale: 1;
+    opacity: 1;
+  }
+}
+
+@keyframes rotateStroke {
+  0% {
+    rotate: 0deg;
+  }
+  20% {
+    rotate: 18deg;
+  }
+  40% {
+    rotate: -15deg;
+  }
+  80% {
+    rotate: 10deg;
+  }
+  80% {
+    rotate: -20deg;
+  }
+  100% {
+    rotate: 0deg;
+  }
+}
+
+@keyframes pathToStroke {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: calc(var(--i) * 1%);
+  }
+}
+
+@keyframes moveToStroke {
+  0% {
+    right: 0;
+  }
+  100% {
+    right: calc(var(--i) * 1vw);
+  }
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes moveFromSide {
+  from {
+    transform: translateX(100vw);
+  }
+  to {
+    transform: translateX(0vw);
+  }
+}
+
+@keyframes moveFromBottom {
+  from {
+    bottom: -40vh;
+  }
+  to {
+    bottom: -10vh;
+  }
+}
+
+@keyframes moveFromTop {
+  from {
+    bottom: 100vh;
+  }
+  to {
+    bottom: 22vh;
+  }
+}

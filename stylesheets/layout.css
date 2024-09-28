@@ -1,0 +1,903 @@
+body {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 70vw;
+  background-image: url('../images/skybackground.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  height: 100vh;
+}
+
+@property --angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.backgroundCorner {
+  mask-image: url('../images/backgroundCorner.svg');
+  background-color: white;
+  width: 2vw;
+  aspect-ratio: 1;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  position: absolute;
+  z-index: 5;
+}
+
+.backgroundCorner.red {
+  background-color: red;
+}
+.backgroundCorner:first-of-type {
+  top: 1vw;
+  left: 1vw;
+}
+.backgroundCorner:nth-of-type(2) {
+  right: 1vw;
+  top: 1vw;
+  transform: rotate(90deg);
+}
+
+.backgroundCorner:nth-of-type(3) {
+  right: 1vw;
+  bottom: 1vw;
+  transform: rotate(180deg);
+}
+
+.backgroundCorner:nth-of-type(4) {
+  left: 1vw;
+  bottom: 1vw;
+  transform: rotate(270deg);
+}
+
+#mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-position: center;
+  background-image: url('../images/mask1.svg');
+  background-size: cover;
+}
+
+html {
+  width: 100vw;
+  overflow: hidden;
+}
+.bullEye {
+  background-image: url('../images/bullEye.png');
+  width: 25vw;
+  height: 22vw;
+  position: absolute;
+  background-position: right;
+  right: 0;
+  top: 0;
+  z-index: 2;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.stroke {
+  transform-origin: center;
+  height: 17vw;
+  width: 0.12vw;
+  position: absolute;
+  background-color: white;
+  right: 11.7vw;
+  top: 6vw;
+  z-index: 1;
+  animation: rotateStroke 4s infinite ease-in-out;
+}
+
+.secondStroke {
+  --i: 60;
+  width: 60%;
+  height: 0.12vw;
+  top: 14.4vw;
+  right: 0;
+  transform-origin: right center;
+  background-color: white;
+  position: absolute;
+  animation: pathToStroke 4s forwards ease-in-out;
+  z-index: 1;
+}
+.indicator {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 90%;
+  height: 70%;
+  animation: indicatormove 2.5s linear forwards;
+  animation-delay: -1s;
+  background-position: right;
+}
+
+.greenlight1 {
+  position: absolute;
+  top: 12.5vw;
+  left: 76vw;
+  width: 4vw;
+  height: 4vw;
+  z-index: 3;
+  background-image: url('../images/greenlight1.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.greenlight2 {
+  width: 2vw;
+  height: 2vw;
+  background-image: url('../images/greenlight1.svg');
+  background-size: contain;
+  animation: lightpulse 0.5s infinite;
+  background-repeat: no-repeat;
+}
+
+.moveGreen {
+  position: absolute;
+  top: 13.5vw;
+  --i: 54;
+  animation: moveToStroke 4s forwards ease-in-out;
+}
+
+#horizontalLines {
+  width: 18vw;
+  position: absolute;
+  top: 14.5vw;
+  right: 20.4vw;
+  opacity: 0;
+  animation: reveal steps(1) 3.2s forwards;
+}
+
+#verticalLines {
+  height: 10vw;
+  position: absolute;
+  top: 16.2vw;
+  right: 20.5vw;
+  opacity: 0;
+  animation: reveal steps(1) 3.2s forwards;
+}
+
+.greenlight3 {
+  position: absolute;
+  top: 39.05vw;
+  left: 54.8vw;
+  width: 2vw;
+  height: 2vw;
+  background-image: url('../images/greenlight1.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0;
+  animation: lightpulse 1s infinite;
+  animation-delay: 6s;
+  z-index: 5;
+}
+.greenlight3:hover {
+  scale: 1.3;
+}
+.text,
+.finishPopup {
+  position: absolute;
+  top: 28vw;
+  left: 12.7vw;
+  width: 57vw;
+  height: 30vw;
+  background-image: url('../images/previewBox.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding: 1vw;
+  box-sizing: border-box;
+}
+
+#firstPopup {
+  animation: moveFromSide 4s ease-in-out forwards;
+}
+span {
+  font-family: 'PP Neue Montreal';
+  font-weight: 500;
+  font-size: 2.2vw;
+  color: white;
+  width: 70%;
+  display: block;
+}
+
+.helpPopup > span {
+  width: 75%;
+  font-size: 2vw;
+  display: block;
+}
+
+.helpPopup,
+.finishPopup {
+  left: unset;
+  right: -100vw;
+  top: 10vw;
+  background-image: url('../images/textBorder.png');
+  width: 45vw;
+  height: 12vw;
+  background-size: contain;
+  padding-top: 1.5vw;
+  padding-left: 5vw;
+  background-repeat: no-repeat;
+}
+
+.sunglasses,
+.laserInterface {
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  animation: opacity 2s linear forwards;
+  background-position: 45% 300%;
+  background-size: 140%;
+  position: absolute;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  display: none;
+}
+
+.hole {
+  width: 30%;
+  aspect-ratio: 1;
+  background-color: #969696;
+  mix-blend-mode: color-dodge;
+  position: absolute;
+  z-index: 5;
+  border-radius: 100%;
+  transform-origin: center;
+  animation: holeGrowth 0.8s ease-in-out forwards;
+}
+
+.apple,
+.cactus,
+.shell,
+.columns > div {
+  animation: opacity 2s linear forwards;
+  transition: 0.5s linear;
+}
+
+.apple:hover,
+.cactus:hover,
+.shell:hover {
+  scale: 1.2;
+  transition: 0.5s linear;
+}
+
+.apple {
+  background-image: url('../images/apple.png');
+  display: none;
+  background-size: contain;
+  bottom: 38vh;
+  left: 19.5vw;
+  width: 10vw;
+  aspect-ratio: 1;
+  background-repeat: no-repeat;
+  position: absolute;
+  background-position: center;
+}
+.cactus {
+  background-image: url('../images/cactus.png');
+  display: none;
+  width: 15vw;
+  background-size: contain;
+  background-position: center;
+  bottom: 37.5vh;
+  left: 43vw;
+  background-repeat: no-repeat;
+  height: 15vw;
+  position: absolute;
+}
+
+.shell {
+  background-image: url('../images/seashell.png');
+  display: none;
+  width: 10vw;
+  background-size: contain;
+  bottom: 38vh;
+  right: 19.5vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 10vw;
+  position: absolute;
+}
+.columns {
+  display: flex;
+  width: 100vw;
+  height: 40vh;
+  justify-content: center;
+  align-items: flex-end;
+  position: absolute;
+  gap: 8vw;
+  z-index: -1;
+  pointer-events: none;
+  bottom: 0;
+  transition: 0.5s;
+}
+
+.columns > div {
+  background-image: url('../images/column.png');
+  display: none;
+  position: relative;
+  background-size: cover;
+  background-position: top center;
+  width: 15vw;
+  height: 100%;
+  background-repeat: no-repeat;
+}
+.columns > div:nth-of-type(2) {
+  width: 20vw;
+}
+
+.cursorRentgen,
+.laserCursor {
+  position: absolute;
+  width: 15vw;
+  aspect-ratio: 1;
+  mask-image: url('../images/cursorRengten.svg');
+  background-color: white;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  mask-position: center;
+  z-index: 88;
+  pointer-events: none;
+}
+.laserCursor {
+  mask-image: url('../images/cursorRed.svg');
+  background-color: #ec5151;
+}
+
+.filter {
+  background-color: black;
+  opacity: 0.5;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+}
+
+.laserPopup {
+  background-image: url('../images/laserPopup.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 30vw;
+  height: 25vw;
+  background-position: top right;
+  position: absolute;
+  right: -100vw;
+  left: unset;
+  top: 0;
+  animation: indicatormove 2.5s linear forwards;
+  animation-delay: -2s;
+  display: none;
+  z-index: 6;
+}
+.laserPopup > span {
+  position: absolute;
+  top: 12vw;
+  font-size: 1.2vw;
+  width: 40%;
+  padding-top: 1vw;
+}
+
+.pickMe {
+  width: 1.7vw;
+  position: absolute;
+  top: 14.7vw;
+  border-radius: 100vw;
+  right: 15.7vw;
+  aspect-ratio: 1;
+  background-color: #abff00;
+  animation: textpulse forwards linear 2s;
+}
+
+.shellInfo,
+.cactusInfo,
+.appleInfo {
+  background-image: url('../images/shellInfo.png');
+  width: 15vw;
+  height: 20vw;
+  right: 18vw;
+  bottom: calc(40vh + 5vw);
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  z-index: 5;
+  animation: scale infinite 1s linear;
+  transform-origin: bottom center;
+  background-position: bottom;
+}
+
+.cactusInfo {
+  background-image: url('../images/cactusInfo.png');
+  right: 43vw;
+  bottom: calc(38vh + 3vw);
+}
+.appleInfo {
+  background-image: url('../images/appleInfo.png');
+  right: none;
+  left: 15vw;
+}
+
+.modeTitle {
+  position: absolute;
+  z-index: 5;
+  display: none;
+  text-align: center;
+  left: 50%;
+  transform: translate(-50%);
+  top: 2vw;
+  width: 25vw;
+  font-size: 3vw;
+  font-family: 'PP Neue Montreal';
+  color: #abff00;
+}
+
+.redTitle {
+  color: #ec5151;
+}
+
+.modeTitle:before {
+  content: '';
+  width: 120%;
+  background: rgba(131, 194, 3, 0.69);
+  aspect-ratio: 55;
+  position: absolute;
+  top: -45%;
+  left: -10%;
+  border-radius: 100vw;
+}
+.redTitle:before {
+  background: #ec5151;
+}
+
+.sun {
+  width: 70%;
+  top: 5%;
+  position: absolute;
+  aspect-ratio: 1;
+  left: 15%;
+  background: conic-gradient(
+    at center,
+    rgba(171, 255, 0, 1) var(--angle),
+    transparent var(--angle)
+  );
+  border-radius: 100vw;
+  transition: --angle 0.5s ease-in-out;
+  --angle: 0deg;
+  mask-image: url('../images/maskSun.svg');
+  mask-size: contain;
+  z-index: 5;
+}
+
+.brightnessBox::after {
+  content: 'BRIGHTNESS';
+  position: absolute;
+  bottom: 1vw;
+  width: 100%;
+  text-align: center;
+  font-family: 'PP Neue Montreal';
+  font-size: 1.5vw;
+  color: white;
+}
+.angleOfView {
+  width: 21vw;
+  aspect-ratio: 2.1;
+  background-image: url('../images/anglePic.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 2vw;
+  left: 2vw;
+  display: flex;
+  z-index: 5;
+  padding-left: 1vw;
+  gap: 7vw;
+  align-items: center;
+}
+
+.anglePercentage {
+  position: absolute;
+  bottom: 1vw;
+  left: 1vw;
+  font-family: 'PP Neue Montreal';
+  font-size: 1.5vw;
+  color: white;
+}
+
+.angleOfView > span {
+  font-family: 'PP Neue Montreal';
+  font-size: 1.5vw;
+  text-align: center;
+  width: unset;
+}
+
+.sunPercent {
+  position: absolute;
+  bottom: 55%;
+  width: 100%;
+  text-align: center;
+  font-family: 'PP Neue Montreal';
+  font-size: 1.5vw;
+  color: white;
+}
+
+.indicatorStep {
+  text-align: center;
+  font-family: 'PP Neue Montreal';
+  font-size: 1.5vw;
+  color: white;
+}
+.stepsIndicator {
+  width: 10vw;
+  position: absolute;
+  aspect-ratio: 0.5;
+  bottom: -1vw;
+  right: calc(5vw + 7vw);
+  background: conic-gradient(
+    at left center,
+    rgba(171, 255, 0, 0.6) var(--angle),
+    transparent var(--angle)
+  );
+  border-bottom-right-radius: 100vw;
+  border-top-right-radius: 100vw;
+  transition: --angle 0.5s ease-in-out;
+  --angle: 0deg;
+  transform: rotate(-90deg) translateY(-25%);
+  transform-origin: right center;
+  mask-image: url('../images/semicircleMask.svg');
+  mask-size: contain;
+  z-index: 5;
+}
+.indicatorPlusTitle {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}
+.stepsIndicator::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  position: absolute;
+  background-image: url('../images/border.svg');
+  background-size: contain;
+}
+.indicatorStep {
+  bottom: 1vw;
+  position: absolute;
+  right: 12vw;
+  width: 10vw;
+  text-align: center;
+}
+
+.brightnessBox {
+  position: absolute;
+  top: 7vw;
+  left: -0.15vw;
+  width: 12vw;
+  aspect-ratio: 1;
+  border: 0.15vw white solid;
+}
+
+.topGlasses,
+.topLaserGlasses {
+  background-image: url('../images/sunglassesTop.png');
+  width: 100vw;
+  height: 100vh;
+  top: -8vw;
+  position: absolute;
+  background-size: contain;
+  background-position: top;
+  background-repeat: no-repeat;
+}
+.laserInterface,
+.finishedUI {
+  position: relative;
+  z-index: 2;
+  background-size: 140% 140%;
+  background-position: center;
+  background-image: url('../images/blurRadius.png');
+}
+.laserInterface:before {
+  content: '';
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-image: url('../images/grid.png');
+}
+
+.bottomGlasses,
+.bottomLaserGlasses {
+  background-image: url('../images/sunglassesBottom.png');
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  bottom: -4vw;
+  background-size: contain;
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+
+.finishedUI > .bottomGlasses {
+  background-image: url('../images/UIfinish_bottom.svg');
+}
+
+.finishedUI > .topGlasses {
+  background-image: url('../images/UIfinish_top.svg');
+}
+
+.bottomLaserGlasses {
+  background-image: url('../images/bottomGlassesLaser.svg');
+}
+.topLaserGlasses {
+  top: 2.4vw;
+  background-image: url('../images/topGlassesLaser.svg');
+}
+.bottomInterface {
+  background-image: url('../images/bottomInterface.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  bottom: 2vw;
+  position: absolute;
+  width: 19vw;
+  aspect-ratio: 386 / 110;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.progressBar1 {
+  width: 15%;
+  height: 100%;
+  position: absolute;
+  left: 23.8%;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 0.5vw;
+  box-sizing: border-box;
+  gap: 4%;
+}
+.progressBar2 {
+  width: 0%;
+  height: 32.5%;
+  position: absolute;
+  background-color: #abff00;
+  transition: 0.5s;
+  left: 62%;
+  transform-origin: left center;
+  bottom: 31%;
+}
+
+.progressBoxTitle {
+  position: absolute;
+  left: 0.1vw;
+  bottom: 0.5vw;
+  color: white;
+  font-family: 'PP Neue Montreal';
+  font-size: 1.2vw;
+}
+
+.progressBar2::after {
+  content: 'VISIBILITY';
+  width: 7vw;
+  position: absolute;
+  display: inline-block;
+  font-family: 'PP Neue Montreal';
+  font-size: 1.2vw;
+  text-align: center;
+  top: -1.5vw;
+  color: white;
+}
+
+.divInterface {
+  background-color: #abff00;
+  width: 70%;
+  aspect-ratio: 4.2;
+}
+
+.viewPercent {
+  font-family: 'PP Neue Montreal';
+  font-size: 1.2vw;
+  color: white;
+  right: 5%;
+  bottom: 5%;
+  position: absolute;
+}
+
+.apple.laserApple {
+  width: 25vw;
+  background-image: url('../images/appleHovered.png');
+  transform-origin: center;
+  left: 37.5vw;
+  bottom: 36vw;
+  z-index: 5;
+  animation: moveFromTop 0.5s forwards linear;
+}
+
+.apple.laserApple:hover {
+  background-image: url('../images/appleClick.png');
+  scale: 1;
+}
+.laserAppleHovered:hover:after {
+  content: '';
+  width: 80%;
+  position: absolute;
+  height: 80%;
+  background-image: url('../images/laserDeletePopup1.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  top: 10%;
+  left: 11%;
+}
+
+.laserAppleHovered:hover:before {
+  content: '';
+  width: 40%;
+  position: absolute;
+  height: 50%;
+  right: -15%;
+  top: -15%;
+  background-image: url('../images/laserDeletePopup2.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.laserPower {
+  position: absolute;
+  top: 8vw;
+  left: 3vw;
+}
+.laserPower > div:nth-of-type(1) {
+  font-family: 'PP Neue Montreal';
+  font-size: 1.2vw;
+  color: #ec5151;
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  width: 5.5vw;
+  border: #ec5151 solid 0.15vw;
+  padding: 0.5vw;
+}
+.laserPower > div:nth-of-type(2) {
+  color: #ec5151;
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  margin-top: -0.15vw;
+  width: 10vw;
+  aspect-ratio: 3.5;
+  border: #ec5151 solid 0.15vw;
+  display: flex;
+  gap: 2%;
+  padding: 0.5vw;
+}
+.laserPower > div:nth-of-type(2) > div {
+  width: 12%;
+  height: 100%;
+  background-color: #ec5151;
+  animation: textpulse infinite 1s;
+}
+
+.laserStrength {
+  position: absolute;
+  bottom: 4vw;
+  left: 3vw;
+}
+.laserStrength > div:nth-of-type(1) {
+  font-family: 'PP Neue Montreal';
+  font-size: 1.2vw;
+  color: #ec5151;
+  width: 5vw;
+  border: #ec5151 solid 0.15vw;
+  position: relative;
+  padding: 0.5vw;
+}
+.laserStrength > div:nth-of-type(2) {
+  position: relative;
+  width: 16vw;
+  margin-top: -0.15vw;
+  border: #ec5151 solid 0.15vw;
+  height: 2vw;
+}
+.increase {
+  width: 96%;
+  height: 80%;
+  top: 10%;
+  left: 2%;
+  background-color: #ec5151;
+  position: absolute;
+  transform-origin: left center;
+  transition: 1s;
+}
+
+.laserFocus {
+  position: absolute;
+  right: 3vw;
+  bottom: 4vw;
+  display: flex;
+  align-items: flex-end;
+}
+.laserFocus > div:nth-of-type(1) {
+  font-family: 'PP Neue Montreal';
+  font-size: 1.2vw;
+  color: #ec5151;
+  border: #ec5151 solid 0.15vw;
+  position: relative;
+  padding: 0.5vw;
+  display: inline-block;
+  position: relative;
+}
+.laserFocus > div:nth-of-type(2) {
+  width: 10vw;
+  display: inline-block;
+  display: flex;
+  gap: 2%;
+  padding: 0.2vw;
+  aspect-ratio: 3.5;
+  border: #ec5151 solid 0.15vw;
+}
+.laserFocus > div:nth-of-type(2) > div {
+  width: 8%;
+  height: 100%;
+  display: none;
+  background-color: #ec5151;
+}
+.timeToGoBack {
+  right: 3vw;
+  position: absolute;
+  top: 8vw;
+  font-family: 'PP Neue Montreal';
+  font-size: 1.2vw;
+  color: #ec5151;
+  display: none;
+}
+.timeToGoBack::after {
+  content: '';
+  width: 150%;
+  aspect-ratio: 2.2;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  right: -15%;
+  top: 2vw;
+  background-image: url('../images/laserTimeToReset.svg');
+}
+.timeBack {
+  position: absolute;
+  right: 4vw;
+  top: 3.5vw;
+}
+
+.finishPopup {
+  display: none;
+}
+.laserText {
+  background-image: url('../images/laserPopupText.svg');
+}
+.finishPopup > span,
+.laserText > span {
+  width: 80%;
+}
+
+.laserText > span {
+  color: #ec5151;
+}
+.finalTimeout {
+  color: white;
+  bottom: 0;
+  right: 4.1vw;
+  transform: translateY(98%);
+  width: 17vw;
+  padding: 1vw;
+  box-sizing: border-box;
+  border: white 0.15vw solid;
+  position: absolute;
+  font-family: 'PP Neue Montreal';
+  font-size: 1vw;
+  text-align: center;
+}

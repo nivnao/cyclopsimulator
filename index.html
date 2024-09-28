@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta property="og:title" content="CYCLOPSIMULATOR" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:url" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>СМОТРИ В ОБА</title>
+    <link rel="stylesheet" href="stylesheets/style.css" />
+    <link rel="icon" type="image/png" href="images/faviconproject.png" />
+  </head>
+
+  <body>
+    <div class="backgroundCorner"></div>
+    <div class="backgroundCorner"></div>
+    <div class="backgroundCorner"></div>
+    <div class="backgroundCorner"></div>
+    <!-- главный экран -->
+    <div class="masks">
+      <div id="mask"></div>
+    </div>
+    <div class="indicator">
+      <div class="bullEye"></div>
+      <div class="stroke"></div>
+      <div class="secondStroke"></div>
+      <div class="greenlight1"></div>
+      <div class="moveGreen">
+        <div class="greenlight2"></div>
+      </div>
+      <div class="greenlight3"></div>
+      <svg id="horizontalLines" fill="none">
+        <animate
+          attributeName="viewBox"
+          from="0 0  273 0"
+          to="0 0 273 209"
+          dur="2s"
+          fill="freeze"
+          begin="3s"
+        />
+
+        <line
+          y1="-1"
+          x2="208.618"
+          y2="-1"
+          transform="matrix(4.37746e-08 1 1 -4.36485e-08 210.918 0)"
+          stroke="white"
+          stroke-opacity="0.9"
+          stroke-width="2"
+        />
+        <path
+          d="M243.494 85.5L243.494 208.618"
+          stroke="white"
+          stroke-opacity="0.9"
+          stroke-width="2"
+        />
+        <path
+          d="M270.355 76L270.355 208.618"
+          stroke="white"
+          stroke-opacity="0.9"
+          stroke-width="2"
+        />
+        <line
+          y1="-1"
+          x2="208.618"
+          y2="-1"
+          transform="matrix(4.37746e-08 1 1 -4.36485e-08 181.072 0)"
+          stroke="white"
+          stroke-opacity="0.9"
+          stroke-width="2"
+        />
+        <line
+          y1="-1"
+          x2="208.618"
+          y2="-1"
+          transform="matrix(4.37746e-08 1 1 -4.36485e-08 151.227 0)"
+          stroke="white"
+          stroke-opacity="0.9"
+          stroke-width="2"
+        />
+        <line
+          y1="-1"
+          x2="208.618"
+          y2="-1"
+          transform="matrix(4.37746e-08 1 1 -4.36485e-08 121.381 0)"
+          stroke="white"
+          stroke-opacity="0.9"
+          stroke-width="2"
+        />
+        <line
+          y1="-1"
+          x2="208.618"
+          y2="-1"
+          transform="matrix(4.37746e-08 1 1 -4.36485e-08 91.5352 0)"
+          stroke="white"
+          stroke-opacity="0.9"
+          stroke-width="2"
+        />
+        <line
+          y1="-1"
+          x2="208.618"
+          y2="-1"
+          transform="matrix(4.37746e-08 1 1 -4.36485e-08 61.6895 0)"
+          stroke="white"
+          stroke-opacity="0.9"
+          stroke-width="2"
+        />
+        <line
+          y1="-1"
+          x2="208.618"
+          y2="-1"
+          transform="matrix(4.37746e-08 1 1 -4.36485e-08 31.8457 0)"
+          stroke="white"
+          stroke-opacity="0.9"
+          stroke-width="2"
+        />
+        <line
+          y1="-1"
+          x2="208.618"
+          y2="-1"
+          transform="matrix(4.37746e-08 1 1 -4.36485e-08 2 0)"
+          stroke="white"
+          stroke-opacity="0.9"
+          stroke-width="2"
+        />
+      </svg>
+      <svg id="verticalLines" fill="none">
+        <animate
+          attributeName="viewBox"
+          from="318 0  0 153"
+          to="0 0 318 153"
+          dur="2s"
+          fill="freeze"
+          begin="3s"
+        />
+        <line
+          x1="8.7549e-08"
+          y1="1"
+          x2="290"
+          y2="1.00003"
+          stroke="white"
+          stroke-opacity="0.9"
+          stroke-width="2"
+        />
+        <line
+          y1="31.4248"
+          x2="304"
+          y2="31.4248"
+          stroke="white"
+          stroke-opacity="0.9"
+          stroke-width="2"
+        />
+        <line
+          x1="8.7549e-08"
+          y1="58.916"
+          x2="291"
+          y2="58.916"
+          stroke="white"
+          stroke-opacity="0.9"
+          stroke-width="2"
+        />
+        <path
+          d="M49 92.8691L317 92.8692"
+          stroke="white"
+          stroke-opacity="0.9"
+          stroke-width="2"
+        />
+        <line
+          x1="49"
+          y1="120.827"
+          x2="318"
+          y2="120.827"
+          stroke="white"
+          stroke-opacity="0.9"
+          stroke-width="2"
+        />
+        <path
+          d="M137 151.985L317.559 151.985"
+          stroke="white"
+          stroke-opacity="0.9"
+          stroke-width="2"
+        />
+      </svg>
+      <div class="text" id="firstPopup">
+        <span
+          >ДОБРО ПОЖАЛОВАТЬ В СИМУЛЯТОР УЛУЧШЕННОГО ЗРЕНИЯ ЦИКЛОПОВ.
+          ПРИГОТОВЬТЕСЬ ВЗГЛЯНУТЬ НА МИР ПО-НОВОМУ.</span
+        >
+      </div>
+    </div>
+    <div class="text helpPopup">
+      <span
+        >ДЛЯ НАЧАЛА ОЧИСТИТЕ ПОЛЕ ЗРЕНИЯ, ЧТОБЫ УВИДЕТЬ ЯСНУЮ И ЧЁТКУЮ
+        КАРТИНКУ.</span
+      >
+    </div>
+    <h1 class="modeTitle"></h1>
+    <div class="objects">
+      <div class="apple"></div>
+      <div class="cactus"></div>
+      <div class="shell"></div>
+    </div>
+    <div class="columns">
+      <div class="div"></div>
+      <div class="div"></div>
+      <div class="div"></div>
+    </div>
+    <div class="text laserPopup">
+      <span
+        >ВКЛЮЧИТЬ ПОЛНУЮ ВЕРСИЮ <br />
+        РЕЖИМА ЛАЗЕРА</span
+      >
+      <div class="pickMe"></div>
+    </div>
+    <div class="sunglasses">
+      <div class="brightnessBox">
+        <div class="sunPercent">0%</div>
+        <div class="sun"></div>
+      </div>
+      <div class="angleOfView">
+        <span>ANGLE</span>
+        <span>OF VIEW</span>
+        <div class="anglePercentage">0°</div>
+      </div>
+      <div class="bottomInterface">
+        <div class="progressBoxTitle">POWER</div>
+        <div class="progressBar1">
+          <div class="divInterface"></div>
+          <div class="divInterface"></div>
+          <div class="divInterface"></div>
+          <div class="divInterface"></div>
+          <div class="divInterface"></div>
+          <div class="divInterface"></div>
+          <div class="divInterface"></div>
+        </div>
+        <div class="progressBar2"></div>
+        <div class="viewPercent">0%</div>
+      </div>
+      <div class="topGlasses"></div>
+      <div class="bottomGlasses"></div>
+      <div class="indicatorPlusTitle">
+        <div class="stepsIndicator"></div>
+        <div class="indicatorStep">NO DATA</div>
+      </div>
+    </div>
+    <div class="laserInterface">
+      <div class="topLaserGlasses"></div>
+      <div class="bottomLaserGlasses"></div>
+      <div class="timeToGoBack">
+        TIME LEFT
+        <div class="timeBack">0:05</div>
+      </div>
+      <div class="laserPower">
+        <div class="upperPartPower">POWER</div>
+        <div class="bottomPartPower">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+      <div class="laserStrength">
+        <div class="upperPartStrength">ENERGY</div>
+        <div class="bottomPartStrength"><div class="increase"></div></div>
+      </div>
+      <div class="laserFocus">
+        <div class="leftPartFocus">FOCUS</div>
+        <div class="rightPartFocus">
+          <div class="div"></div>
+          <div class="div"></div>
+          <div class="div"></div>
+          <div class="div"></div>
+          <div class="div"></div>
+          <div class="div"></div>
+          <div class="div"></div>
+          <div class="div"></div>
+          <div class="div"></div>
+          <div class="div"></div>
+        </div>
+      </div>
+    </div>
+    <div class="finishPopup">
+      <span>
+        ОБЪЕКТ УНИЧТОЖЕН, УБЕРИТЕ ОСТАТКИ И ЗАВЕРШАЙТЕ СЕАНС — СКОРО КОНЧИТСЯ
+        ЗАРЯД.
+      </span>
+      <div class="finalTimeout">ЗАВЕРШЕНИЕ ЧЕРЕЗ 0:25</div>
+    </div>
+
+    <script src="./javascript/script.js"></script>
+  </body>
+</html>
