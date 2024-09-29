@@ -141,3 +141,11 @@
     bottom: 22vh;
   }
 }
+ @keyframes opacityName {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+ }
