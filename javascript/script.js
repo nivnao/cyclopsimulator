@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', function () {
           'ПЕРЕД ВАМИ ПРЕДМЕТЫ, С ПОМОЩЬЮ КОТОРЫХ ВЫ СМОЖЕТЕ ПРОТЕСТИРОВАТЬ НОВЫЕ ВОЗМОЖНОСТИ ЗРЕНИЯ...'
         popupHelp.style.right = '0'
         popupHelp.style.animation = 'textpulse forwards linear 2s'
-        popupHelp.style.animationDelay = '-1s'
+        popupHelp.style.animationDelay = '-2s'
         void popupHelp.offsetWidth
         popupHelp.style.animation = 'none'
 
@@ -223,15 +223,15 @@ document.addEventListener('DOMContentLoaded', function () {
           popupHelp.querySelector('span').innerText =
             'СФОКУСИРУЙТЕСЬ НА КАКОМ-НИБУДЬ ОБЪЕКТЕ.  ВАМ ОТКРОЕТСЯ ОДИН ИЗ МОДОВ СУПЕР-ЗРЕНИЯ.'
           popupHelp.style.animation = 'textpulse forwards linear 2s'
-          popupHelp.style.animationDelay = '-1s'
-        }, 2000)
+          popupHelp.style.animationDelay = '-2s'
+        }, 3500)
 
         setTimeout(() => {
           popupHelp.style.animation = 'none'
           void popupHelp.offsetWidth
           popupHelp.style.animation =
-            'indicatormove 1.8s reverse forwards running'
-        }, 3000)
+            'indicatormove 2.5s reverse forwards running'
+        }, 6000)
       }
     })
   }
