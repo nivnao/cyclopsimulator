@@ -1,8 +1,5 @@
 @font-face {
   font-family: 'PP Neue Montreal';
   font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(../fonts/ppneuemontreal-book.otf) format(otf);
+  src: url('../fonts/ppneuemontreal-book.otf');
 }
-

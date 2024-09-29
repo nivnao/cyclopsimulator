@@ -43,9 +43,10 @@ document.addEventListener('DOMContentLoaded', function () {
   let finishTimeout = document.querySelector('.finalTimeout')
   let indicatorStepSpan = document.querySelector('.indicatorStep')
 
-  let shiftX = 0
-  let shiftY = 0
+  let shiftedX = 0
+  let shiftedY = 0
   let removedCount = 0
+  let finalTimeCount = 15
 
   function removeProgressBar() {
     if (removedCount < 4) {
@@ -552,7 +553,6 @@ document.addEventListener('DOMContentLoaded', function () {
         timeToGoBack.style.display = 'block'
 
         function secondClickAwait() {
-          let finalTime = 25
           let cursor = document.querySelector('.laserCursor')
           cursor.remove()
           laserInterface.style.display = 'none'
@@ -580,14 +580,36 @@ document.addEventListener('DOMContentLoaded', function () {
           clearInterval(interval)
           apple.removeEventListener('click', secondClickAwait)
 
+          function onMouseDown(e) {
+            document.addEventListener('mousemove', onMouseMove)
+            document.addEventListener('mouseup', onMouseUp)
+            shiftedX = e.clientX - apple.getBoundingClientRect().left
+            shiftedY = e.clientY - apple.getBoundingClientRect().top
+            apple.style.animation = 'none'
+            apple.style.transition = 'none'
+          }
+
+          function onMouseMove(e) {
+            apple.style.left = e.clientX - shiftedX + 'px'
+            apple.style.top = e.clientY - shiftedY + 'px'
+            apple.style.bottom = 'unset'
+          }
+
+          function onMouseUp() {
+            document.removeEventListener('mousemove', onMouseMove)
+            document.removeEventListener('mouseup', onMouseUp)
+          }
+
+          apple.addEventListener('mousedown', onMouseDown)
+
           setInterval(() => {
-            finalTime--
-            finishTimeout.textContent = `ЗАВЕРШЕНИЕ ЧЕРЕЗ 0:${finalTime}`
+            finalTimeCount--
+            finishTimeout.textContent = `ЗАВЕРШЕНИЕ ЧЕРЕЗ 0:${finalTimeCount}`
           }, 1000)
 
           finalTimeout = setTimeout(() => {
             location.reload()
-          }, 25000)
+          }, finalTimeCount * 1000)
         }
 
         let interval = setInterval(() => {
