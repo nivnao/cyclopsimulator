@@ -224,7 +224,7 @@ document.addEventListener('DOMContentLoaded', function () {
             'СФОКУСИРУЙТЕСЬ НА КАКОМ-НИБУДЬ ОБЪЕКТЕ.  ВАМ ОТКРОЕТСЯ ОДИН ИЗ МОДОВ СУПЕР-ЗРЕНИЯ.'
           popupHelp.style.animation = 'textpulse forwards linear 2s'
           popupHelp.style.animationDelay = '-2s'
-        }, 3500)
+        }, 4000)
 
         setTimeout(() => {
           popupHelp.style.animation = 'none'
