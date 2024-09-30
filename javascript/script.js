@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
   let shiftedX = 0
   let shiftedY = 0
   let removedCount = 0
-  let finalTimeCount = 15
+  let finalTimeCount = 10
 
   function removeProgressBar() {
     if (removedCount < 4) {
@@ -494,7 +494,7 @@ document.addEventListener('DOMContentLoaded', function () {
       let laserPopupFirst = document.createElement('div')
       let spanText = document.createElement('span')
       spanText.innerText =
-        'ВЫ В ПОЛНОЙ ВЕРСИИ РЕЖИМЕ ЛАЗЕРА. ВЫСТРЕЛИТЕ В ОБЪЕКТ, ЧТОБЫ УНИЧТОЖИТЬ ЕГО.'
+        'ВЫ В ПОЛНОЙ ВЕРСИИ РЕЖИМА ЛАЗЕРА. ВЫСТРЕЛИТЕ В ОБЪЕКТ, ЧТОБЫ УНИЧТОЖИТЬ ЕГО.'
       document.body.appendChild(laserPopupFirst)
       laserPopupFirst.appendChild(spanText)
       laserPopupFirst.classList.add('text', 'helpPopup', 'laserText')
